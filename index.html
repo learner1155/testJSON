@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest ES5 Example</title>
+</head>
+<body>
+
+    <h2>Get Post Details</h2>
+
+    <button onclick="getPost()">Get Data</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        function getPost() {
+
+            // Change ID (1-100)
+            var postId = 2;
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/" + postId, true);
+
+            xhr.onreadystatechange = function () {
+
+                if (xhr.readyState === 4) {
+
+                    if (xhr.status === 200) {
+
+                        var response = JSON.parse(xhr.responseText);
+
+                        verifyUserId(response);
+
+                    } else {
+
+                        document.getElementById("result").innerHTML = "Request Failed";
+
+                    }
+
+                }
+
+            };
+
+            xhr.send();
+        }
+
+        // Verify whether userId key exists
+        function verifyUserId(data) {
+
+            if (data.hasOwnProperty("userId")) {
+
+                // Store data in another variable
+                var postData = data;
+
+                // Pass data to another function
+                displayPost(postData);
+
+            } else {
+
+                document.getElementById("result").innerHTML = "userId key not found.";
+
+            }
+
+        }
+
+        // Display dynamic HTML
+        function displayPost(postData) {
+
+            var html = "";
+
+            html += "<div style='border:1px solid #ccc;padding:15px;margin-top:10px;'>";
+            html += "<h3>" + postData.title + "</h3>";
+            html += "<p>" + postData.body + "</p>";
+            html += "<p><strong>User ID:</strong> " + postData.userId + "</p>";
+            html += "</div>";
+
+            document.getElementById("result").innerHTML = html;
+
+        }
+
+    </script>
+
+</body>
+</html>
