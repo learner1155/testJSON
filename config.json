@@ -1,0 +1,40 @@
+{
+    "productcodes": {
+        "_comment": "Product code definitions",
+        "AB": {
+            "_comment": "Entry for product code AB",
+            "productCode": "AB",
+            "productName": "Mouse"
+        },
+        "CD": {
+            "_comment": "Entry for product code CD",
+            "productCode": "CD",
+            "productName": "Keyboard"
+        },
+        "EF": {
+            "_comment": "Entry for product code EF",
+            "productCode": "EF",
+            "productName": "Desktop"
+        }
+    },
+        
+        "productnames": {
+            "_comment": "Product name details",
+            "webcam": {
+                "_comment": "Entry for product name webcam",
+                "productName": "WebCam",
+                "Color": "Black"
+            },
+            "monitor": {
+                "_comment": "Entry for product name monitor",
+                "productName": "Monitor",
+                "Color": "Red"
+            },
+            "speaker": {
+                "_comment": "Entry for product name speaker",
+                "productName": "Speaker",
+                "Color": "Blue"
+            }
+        }
+    }
+
